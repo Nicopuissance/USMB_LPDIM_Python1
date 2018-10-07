@@ -261,31 +261,74 @@ mylist2=[1,2,3]
 #coords_array=numpy.array(coordsList)
 
 
-def reverse(input_list):
-       """
-    brief: computes the average of the positve values of a array  
-    Args:
-        tab :a list of numeric value, expects at least one positive values, raise Exception if not
-    Returns:
-        the computed average as a float value
-    Raises:
-        ValueError if no positive value is found
-        ValueError if input tab is not a list
-    """
-    if not(isinstance(input_list, list)):
-        raise ValueError('Expected a list as input')
-    temp=""
-    lenght=len(input_list)-1
-    for index in range(round(len(input_list)/2)):
-        temp=input_list[index]
-        input_list[index]=input_list[lenght]
-        input_list[lenght]=temp
-        lenght-=1
-    return input_list
+#def reverse(input_list):
+#       """
+#    brief: reverse a list without a other list
+#    Args:
+#        tab :a list of values, raise Exception if not
+#    Returns:
+#        the list reversed
+#    Raises:
+#        ValueError if input tab is not a list
+#    """
+#    if not(isinstance(input_list, list)):
+#        raise ValueError('Expected a list as input')
+#    temp=""
+#    lenght=len(input_list)-1
+#    for index in range(round(len(input_list)/2)):
+#        temp=input_list[index]
+#        input_list[index]=input_list[lenght]
+#        input_list[lenght]=temp
+#        lenght-=1
+#    return input_list
+#
+#print (reverse(mylist2))
 
-print (reverse(mylist2))
+#def bounding_box(portrait):
+#    """incompréhension du sujet"""
+#       """
+#    brief: do nothing and return 0
+#    Args:
+#        tab :a list of 0 or 1 values else raise Exception if not
+#    Returns:
+#        a list
+#    Raises:
+#        ValueError if input tab is not a list
+#        ValueError if input tab is not composed of 0 or 1
+#        
+#    """
+#    if not(isinstance(input_list, list)):
+#        raise ValueError('Expected a list as input')
+#    for longeur in portrait:
+#        for value in longeur:
+#            if (value<>1 or value<>0):
+#                raise ValueError('Expected a list composed only with 0 or 1')
+#    return 0
 
-
+#def remove_whitespace(string):
+#    """
+#    brief: take the string an delete the whitespace
+#    Args:
+#        string :a non empty string else raise Exception if not
+#    Returns:
+#        a list
+#    Raises:
+#        ValueError if input tab is not a list
+#        ValueError if input tab is not composed of 0 or 1
+#        
+#    """
+#    if not(isinstance(string, str)):
+#        raise ValueError('Expected a string as input')
+#    if not string:
+#        raise ValueError('Expected a not empty string')
+#    return string.replace(" ","")
+#
+#print(ord(" "))
+#print(remove_whitespace("Je suis dingue"))
+            
+def random_choice(liste):
+    random()
+    return list[index]
 
 
 
