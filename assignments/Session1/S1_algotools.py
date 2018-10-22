@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 ##
 #
 # @author Alexandre Benoit, LISTIC Lab, IUT Annecy le vieux, FRANCE
@@ -98,66 +98,64 @@ def max_value(input_list):
     return max_val, max_idx
 
 def average_above_zero(tab):
-        """
-        Calcule la moyenne
-        Args:
-            tab is a list of numeric value
+    """
+    Calcule la moyenne
+    Args:
+        tab is a list of numeric value
 
-        return:
-            the computed average
+    return:
+        the computed average
 
-        raise:
-            Value error if no positive value is found
-            Value error if input tab is not a list
-        """
-        
-        if not(isinstance(tab , list)):
-            raise ValueError('Expected a list as input')
-        
-        average =.99
+    raise:
+        Value error if no positive value is found
+        Value error if input tab is not a list
+    """
+    
+    if not(isinstance(tab , list)):
+        raise ValueError('Expected a list as input')
+    
+    average =.99
 
-        valSum =0.0
-        nPositiveValue = 0
-        NMAX = len(tab)
+    valSum =0.0
+    nPositiveValue = 0
+    NMAX = len(tab)
 
-        for val in range(0,NMAX):
-            if val > 0:
-                valSum = valSum + float(val)
-                nPositiveValue = nPositiveValue+1
+    for val in range(0,NMAX):
+        if val > 0:
+            valSum = valSum + float(val)
+            nPositiveValue = nPositiveValue+1
 
-        if nPositiveValue <= 0:
-            raise ValueError('No positif value found')
+    if nPositiveValue <= 0:
+        raise ValueError('No positif value found')
 
-        average = valSum/nPositiveValue
+    average = valSum/nPositiveValue
 
-        return average
+    return average
 
 
 test_tab = [1,7,8,-5 , 5]
-<<<<<<< HEAD
 moy = average_above_zero(test_tab)
-=======
-moy = average_above_zero(testTab)
->>>>>>> 3727b2a18e3e2302f838bca50faf188cddfdbc3c
 print(moy)
 
-def max_value(tabValue)
-     """
-        Calcule la valeur max du tableau
-        Args:
-            tab is a list of numeric value
+def max_value(tabValue):
+    
+    """
+    Calcule la valeur max du tableau
+    Args:
+        tab is a list of numeric value
 
-        return:
-            the max value
+    return:
+        the max value
 
-        raise:
-        """
-        maxTab = max(testTab)
-        return maxTab
+    raise:
+    """
+    maxTab = max(testTab)
+    return maxTab
 
 
 tab = [1,7,8,-5 , 5]
-maxTab
+tabMax = max(tab)
+print(tabMax)
 
 
 tab = [1,2,3,4]
@@ -230,7 +228,6 @@ coordsList=[[ymin, xmin],[ymin, xmax],[ymax, xmin],[ymax, xmax]]
 #->convert to an array
 coords_array=numpy.array(coordsList)
 """
-=======
 
 
 def average_above_zero(tab):
@@ -271,6 +268,8 @@ print('Positive values average='+str(moy))
 print('Positive values average={v}'.format(v=moy))
 
 ### @author Nicolas Duwavrent
+
+import random
 ##
 ##def average_above_zero(tab):
 ##    """
@@ -468,31 +467,32 @@ mylist2=[1,2,3]
 #coords_array=numpy.array(coordsList)
 
 
-#def reverse(input_list):
-#       """
-#    brief: reverse a list without a other list
-#    Args:
-#        tab :a list of values, raise Exception if not
-#    Returns:
-#        the list reversed
-#    Raises:
-#        ValueError if input tab is not a list
-#    """
-#    if not(isinstance(input_list, list)):
-#        raise ValueError('Expected a list as input')
-#    temp=""
-#    lenght=len(input_list)-1
-#    for index in range(round(len(input_list)/2)):
-#        temp=input_list[index]
-#        input_list[index]=input_list[lenght]
-#        input_list[lenght]=temp
-#        lenght-=1
-#    return input_list
-#
-#print (reverse(mylist2))
+def reverse(input_list):
+    """
+    brief: reverse a list without a other list
+    Args:
+        tab :a list of values, raise Exception if not
+    Returns:
+        the list reversed
+    Raises:
+        ValueError if input tab is not a list
+    """
+    if not(isinstance(input_list, list)):
+        raise ValueError('Expected a list as input')
+    temp=""
+    lenght=len(input_list)-1
+    
+    for index in range(round((lenght+1)/2)):
+        temp=input_list[index]
+        input_list[index]=input_list[lenght]
+        input_list[lenght]=temp
+        lenght-=1
+    return input_list
+
+print (reverse(mylist2))
 
 #def bounding_box(portrait):
-#    """incompréhension du sujet"""
+#    """incomprÃ©hension du sujet"""
 #       """
 #    brief: do nothing and return 0
 #    Args:
@@ -534,10 +534,23 @@ mylist2=[1,2,3]
 #print(remove_whitespace("Je suis dingue"))
             
 def random_choice(liste):
-    random()
-    return list[index]
+    """
+    brief: choose randomly in the given liste
+    Args:
+        tab :a list of values, raise Exception if not
+    Returns:
+        the value selected randomly
+    Raises:
+        ValueError if input tab is not a list
+    """
+    if not(isinstance(liste, list)):
+        raise ValueError('Expected a list as input')
+    if not liste:
+        raise ValueError('Expected a non empty list')
+    index=random.randint(0,len(liste)-1)
+    return liste[index]
 
-
+print(random_choice([]))
 
 
 
