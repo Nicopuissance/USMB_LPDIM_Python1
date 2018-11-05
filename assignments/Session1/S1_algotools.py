@@ -319,7 +319,7 @@ import numpy as np
 #a=1 # default type : int
 #
 ## an empty list
-#mylist = []
+mylist = []
 #
 ##a filled list
 mylist2=[1,2,3,4,5]
@@ -470,9 +470,9 @@ mylist2=[1,2,3,4,5]
 
 def reverse(input_list):
     """
-    brief: reverse a list without a other list
+    brief: reverse a list without an other list
     Args:
-        tab :a list of values, raise Exception if not
+        tab :a list of values, raise Exception if the list is empty
     Returns:
         the list reversed
     Raises:
@@ -480,6 +480,8 @@ def reverse(input_list):
     """
     if not(isinstance(input_list, list)):
         raise ValueError('Expected a list as input')
+    if (input_list==[]):
+        raise ValueError('Expected a filled list')
     temp=""
     lenght=len(input_list)-1
     
@@ -490,7 +492,7 @@ def reverse(input_list):
         lenght-=1
     return input_list
 
-print (reverse(mylist2))
+print (reverse(mylist))
 
 def bounding_box(inputMat):
     """
