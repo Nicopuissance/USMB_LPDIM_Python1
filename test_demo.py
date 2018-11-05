@@ -43,11 +43,8 @@ def check_S1_selective_average(testList):
     import numpy as np
     #another way to process the positive elements average to compare with
     positive_elements_float_array=np.array([i for i in testList if i >= 0], dtype=float)
-    if (positive_elements_float_array==[]):
-        reference_average_value=ValueError("No positive value found")
-    else:
-        reference_average_value=np.mean(positive_elements_float_array)
-    assert load_S1_script().average_above_zero(testList)==reference_average_value
+    reference_average_value=np.mean(positive_elements_float_array)
+    assert load_S1_script().average_above_zero(testList) ==reference_average_value
 
 def test_S1_selective_average_non_zeros_values():
     ##
