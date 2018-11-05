@@ -485,7 +485,7 @@ def reverse(input_list):
     temp=""
     lenght=len(input_list)-1
     
-    for index in range(round((lenght+1)/2)):
+    for index in range((int)(round((lenght+1)/2))):
         temp=input_list[index]
         input_list[index]=input_list[lenght]
         input_list[lenght]=temp
