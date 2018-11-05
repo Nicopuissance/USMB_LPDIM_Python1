@@ -270,6 +270,7 @@
 ### @author Nicolas Duwavrent
 
 import random
+import numpy as np
 ##
 ##def average_above_zero(tab):
 ##    """
@@ -491,26 +492,46 @@ def reverse(input_list):
 
 print (reverse(mylist2))
 
-#def bounding_box(portrait):
-#    """incompréhension du sujet"""
-#       """
-#    brief: do nothing and return 0
-#    Args:
-#        tab :a list of 0 or 1 values else raise Exception if not
-#    Returns:
-#        a list
-#    Raises:
-#        ValueError if input tab is not a list
-#        ValueError if input tab is not composed of 0 or 1
-#        
-#    """
-#    if not(isinstance(input_list, list)):
-#        raise ValueError('Expected a list as input')
-#    for longeur in portrait:
-#        for value in longeur:
-#            if (value<>1 or value<>0):
-#                raise ValueError('Expected a list composed only with 0 or 1')
-#    return 0
+def bounding_box(inputMat):
+    """
+    brief: do nothing and return 0
+    Args:
+        tab :a list of 0 or 1 values else raise Exception if not
+    Returns:
+        a list
+    Raises:
+        ValueError if input tab is not a list
+        ValueError if input tab is not composed of 0 or 1
+        
+    """
+    if not(isinstance(inputMat, np.ndarray)):
+        raise ValueError('Expected a numpy array as input')
+    if not(inputMat.dtype==np.bool):
+        raise ValueError('Expected an input of type numpy.bool')
+        
+    lmin=inputMat.shape[0]
+    lmax=0
+    lmin=inputMat.shape[1]
+    cmax=0
+    
+    for l in range(inputMat.shape[0]):
+        for c in range(inputMat.shape[1]):
+            if (inputMat[l,c]==True):
+                if l<lmin:
+                    lmin=l
+                if l<mlax:
+                    lmax=l
+                if c<cmin:
+                    cmin=c
+                if c<cmax:
+                    cmax=c
+    roi=[lmin,cmin],[lmin,cmax],[lmax,cmin],[lmax,cmax]        
+    return np.array(roi)
+
+imputMat=np.zeros((5,6),dtype=np.bool)
+imputMat[2:4,3:5]=np.ones((2,2), dtype=np.bool)
+print(str(imputMat))
+print(str(bounding_box(inputMap)))
 
 #def remove_whitespace(string):
 #    """
