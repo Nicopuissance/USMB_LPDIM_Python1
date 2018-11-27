@@ -4,6 +4,7 @@
 """
 
 import os
+import pytest
 print('Starting test script from working directory : '+os.getcwd())
 
 def test_basicTrue():
@@ -31,46 +32,52 @@ def test_session1script_exists():
     try:
         load_S1_script()
         assert True
-    except  ImportError,e:
+    except  ImportError:
         print('Expected script not found, carrefuly check the assignement instructions ')
         assert False
 
-def check_S1_selective_average(testList):
-    ##
-    # utility function that asserts if load_S1_script().average_above_zero works fine
-    # @param testList a list of values onto average_above_zero is applied
-    # @test ensures the function returns the correct average value
-    import numpy as np
-    #another way to process the positive elements average to compare with
-    positive_elements_float_array=np.array([i for i in testList if i >= 0], dtype=float)
-    reference_average_value=np.mean(positive_elements_float_array)
-    assert load_S1_script().average_above_zero(testList) ==reference_average_value
+#def check_S1_selective_average(testList):
+#    ##
+#    # utility function that asserts if load_S1_script().average_above_zero works fine
+#    # @param testList a list of values onto average_above_zero is applied
+#    # @test ensures the function returns the correct average value
+#    import numpy as np
+#    #another way to process the positive elements average to compare with
+#    positive_elements_float_array=np.array([i for i in testList if i >= 0], dtype=float)
+#    reference_average_value=np.mean(positive_elements_float_array)
+#    assert load_S1_script().average_above_zero(testList) ==reference_average_value
 
 def test_S1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >0
-    check_S1_selective_average([1,2,3,4,-7])
+    testList=[1,2,3,4,-7]
+    assert load_S1_script().average_above_zero(testList) ==2.5
 
 def test_S1_selective_average_with_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >=0
-    check_S1_selective_average([0,1,2,3,4,-7])
+    testList=[0,1,2,3,4,-7]
+    assert load_S1_script().average_above_zero(testList) ==2.5
 
 def test_S1_selective_average_with_negative_values():
     ##
     # @test validates average_above_zero works fine with integer values <=0
-    check_S1_selective_average([0,-7])
+    testList=[0,-7]
+    with pytest.raises(ValueError):
+        load_S1_script().average_above_zero(testList)
 
 def test_S1_selective_average_with_string_values():
     ##
     # @test validates average_above_zero works fine with integer values <=0
-    check_S1_selective_average(['ab','c'])
+    testList=['ab','c']
+    with pytest.raises(ValueError):
+        load_S1_script().average_above_zero(testList)
 
-def test_S1_selective_average_with_string_values():
+def test_S1_selective_average_with_empty_list():
     ##
     # @test validates average_above_zero works fine with an empty list
     try:
-        check_S1_selective_average([])
+        load_S1_script().average_above_zero([]])
         assert False
     except ValueError:
         assert True
