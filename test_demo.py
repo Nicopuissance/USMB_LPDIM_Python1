@@ -77,7 +77,7 @@ def test_S1_selective_average_with_empty_list():
     ##
     # @test validates average_above_zero works fine with an empty list
     try:
-        load_S1_script().average_above_zero([]])
+        load_S1_script().average_above_zero([])
         assert False
     except ValueError:
         assert True
