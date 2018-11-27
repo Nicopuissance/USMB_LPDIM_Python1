@@ -17,7 +17,7 @@ params.socket_timeout = 100
 #initiate the connexion
 connection = pika.BlockingConnection(params) # Connect to CloudAMQP
 channel=connection.channel()
-channel.queu_declare(queu='hello')
+channel.queue_declare(queue='hello',durable='true')
 
 def callback(ch,method,properties,body):
     print("[X] Received %r" % body)
