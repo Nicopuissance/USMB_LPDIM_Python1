@@ -20,11 +20,11 @@ amqp_url=key.key
 
 url = os.environ.get('CLOUDAMQP_URL',amqp_url)
 params = pika.URLParameters(url)
-params.socket_timeout = 100
+params.socket_timeout = 50
 #initiate the connexion
 connection = pika.BlockingConnection(params) # Connect to CloudAMQP
 channel = connection.channel()
-channel.queu_declare(queu='hello',durable='true')
+channel.queue_declare(queue='hello',durable='true')
 channel.basic_publish(exchange='',
                       routing_key='hello',
                       body='Hello World !')
