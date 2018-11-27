@@ -51,13 +51,13 @@ def test_S1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >0
     testList=[1,2,3,4,-7]
-    assert load_S1_script().average_above_zero(testList) ==2,5
+    assert load_S1_script().average_above_zero(testList)[0] ==2,5
 
 def test_S1_selective_average_with_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >=0
     testList=[0,1,2,3,4,-7]
-    assert load_S1_script().average_above_zero(testList) ==2,5
+    assert load_S1_script().average_above_zero(testList)[0] ==2,5
 
 def test_S1_selective_average_with_negative_values():
     ##
