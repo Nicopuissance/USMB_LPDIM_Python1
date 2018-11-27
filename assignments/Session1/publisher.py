@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Tue Nov 27 13:24:58 2018
+
+@author: nicolasduwavrent
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Tue Nov  6 15:50:02 2018
 
 @author: nicolasduwavrent
