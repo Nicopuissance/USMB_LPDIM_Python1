@@ -270,6 +270,7 @@
 ### @author Nicolas Duwavrent
 
 import random
+import numpy
 import numpy as np
 #
 def average_above_zero(tab):
@@ -409,6 +410,7 @@ def max_value(input_list):
 #test max_value function
 #1 basic test, expected answer=2
 mylist3=[-1,2,-20]
+
 mymax, mymaxidx=max_value(mylist3)
 mymax_tuple=max_value(mylist3)
 mymax=mymax_tuple[0]
@@ -423,7 +425,6 @@ print('Max value of {input_list} is {max_scan}'.format(input_list=mylist, max_sc
 # hints to solve the roi_bbox function exercise: numpy basics
 
 #matrix processing lib
-import numpy
 
 #create a numpy matrix with specific dimensions
 size_rows=10
