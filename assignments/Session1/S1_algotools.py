@@ -411,6 +411,7 @@ def max_value(input_list):
 #1 basic test, expected answer=2
 mylist3=[-1,2,-20]
 
+
 mymax, mymaxidx=max_value(mylist3)
 mymax_tuple=max_value(mylist3)
 mymax=mymax_tuple[0]
