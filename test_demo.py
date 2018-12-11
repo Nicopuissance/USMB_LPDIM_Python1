@@ -105,8 +105,7 @@ def test_S1_max_value_with_empty_list():
         assert False
     except ValueError:
         assert True
-
-def     
+   
     
     
     
