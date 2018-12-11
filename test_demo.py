@@ -90,7 +90,7 @@ def test_S1_max_value_with_positive_values():
 def test_S1_max_value_with_negative_values():
     # @test validates max_value works fine with only positive values
     testList=[-1,-2,-3,-4,-7]
-    assert load_S1_script().max_value(testList)[0] == -7
+    assert load_S1_script().max_value(testList)[0] == -1
 
 def test_S1_max_value_with_mixed_values():
     # @test validates max_value works fine with only positive values
