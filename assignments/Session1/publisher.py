@@ -27,9 +27,22 @@ channel = connection.channel()
 channel.queue_declare(queue='hello',durable='true')
 channel.basic_publish(exchange='',
                       routing_key='hello',
-                      body='Hello World !')
+                      body='Hello World !',
+                      properties = pika.BasicProperties(delivery_mode=2,))
 print ("[x] Sent 'Hello World'")
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='Bonjour monde',
+                      properties = pika.BasicProperties(delivery_mode=2,))
 print ("[x] Sent 'Bonjour monde'")
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='Good morning city',
+                      properties = pika.BasicProperties(delivery_mode=2,))
 print ("[x] Sent 'Good morning city'")
+channel.basic_publish(exchange='',
+                      routing_key='hello',
+                      body='hey hi hello World',
+                      properties = pika.BasicProperties(delivery_mode=2,))
 print ("[x] Sent 'hey hi hello World'")
 connection.close()
