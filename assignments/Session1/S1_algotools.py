@@ -512,7 +512,48 @@ def random_choice(liste):
     return liste[index]
 
 
+#--------------------------------------------------------shuffle(dice)-------------------------------------------------
+def shuffle(score):
+    score=[["J1",0],["Ordi",0]]
+    player=0
+    jeu=[]
+    reponse=''
+    while(score[0][1]<=100) and (score[1][1]<=100) and (reponse!='1234'):
+        jeu=lance(jeu)
+        reponse=''
+        print("Vous avez fait "+str(jeu[len(jeu)-1]))
+        if (jeu[len(jeu)-1]==1):
+            jeu=[]
+            player=joueur(player)
+            reponse=2
+            print ("C'est un 1, dommage vous ne gagnez pas de points"+score[player][0])
+        if (reponse==''):
+            print ("Joueur "+ score[player][0])
+            display=''
+            for i in jeu:
+                display=display+str(i)+"  "
+            print ("Votre vos lancers : "+ display)
+            print ("Rejouer: Entrer, Stop: 0, Quiter: 1234")
+            reponse = input()
+        if (reponse=='0'):
+            for i in jeu:
+                score[player][1]=score[player][1]+i
+            print("Score: "+score[player][0]+" : "+str(score[player][1]))
+            player=joueur(player)
+            jeu=[]
+    print ("fin")
+    return score
 
+def lance(jeu):
+    jeu.append(random.randint(1,6))
+    return jeu
+
+def joueur(player):
+    if (player==0):
+        player=1
+    else:
+        player=0
+    return player
 #---------------------------------------------Print--------------------------------------------------------------------
 
 test_tab=[0,1,2,3,4,-6]
@@ -617,3 +658,5 @@ print("Remove whitespace :"+remove_whitespace("Je suis dingue"))
 print(random_choice(mylist2))
 imputMat=np.empty((5,10),dtype=str)
 print(random_fill_sparse(imputMat, 10))
+liste=[]
+print (shuffle(liste))
