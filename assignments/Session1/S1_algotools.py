@@ -414,13 +414,12 @@ def reverse_table(input_list):
 #--------------------------------------------------------roi_bbox------------------------------------------------------
 def roi_bbox(inputMat):
     """
-    brief: do nothing and return 0
+    brief: compute the bounding box coordinates of the object.
     Args:
-        tab :a list of 0 or 1 values else raise Exception if not
+        tab :numpy array of numpy.bool values else raise Exception if not
     Returns:
-        a list
-    Raises:
-        ValueError if input tab is not a list
+        a numpy array 
+    Raises:numpy array list
         ValueError if input tab is not composed of 0 or 1
         
     """
@@ -448,7 +447,32 @@ def roi_bbox(inputMat):
     roi=[lmin,cmin],[lmin,cmax],[lmax,cmin],[lmax,cmax]        
     return np.array(roi)
 
-
+#------------------------------------------------------------
+def random_fill_sparse(npArray, K):
+    """
+    brief: compute the bounding box coordinates of the object.
+    Args:
+        tab :numpy array else raise Exception if not
+    Returns:
+        a numpy array 
+    """
+    if not(isinstance(npArray, np.ndarray)):
+        raise ValueError('Expected a numpy array as input')
+    largeur=npArray.shape[0]-1
+    longeur=npArray.shape[1]-1
+    for l in range(npArray.shape[0]):
+        for c in range(npArray.shape[1]):
+            npArray[l][c]=''
+    Kmax=npArray.shape[0]*npArray.shape[1]
+    if (K>Kmax):
+        K=Kmax
+    while K>0:
+        y=random.randint(0,longeur)
+        x=random.randint(0,largeur)
+        if (npArray[x][y]!='X'):
+            npArray[x][y]='X'
+            K=K-1
+    return npArray
 #------------------------------------------------------------remove_whitespace-----------------------------------------
 def remove_whitespace(string):
     """
@@ -468,7 +492,7 @@ def remove_whitespace(string):
         raise ValueError('Expected a not empty string')
     return string.replace(" ","")
 
-
+#------------------------------------------------------------Random_choice---------------------------------------------
             
 def random_choice(liste):
     """
@@ -486,7 +510,6 @@ def random_choice(liste):
         raise ValueError('Expected a non empty list')
     index=random.randint(0,len(liste)-1)
     return liste[index]
-
 
 
 
@@ -592,3 +615,5 @@ print(str(roi_bbox(imputMat)))
 print("Remove whitespace :"+remove_whitespace("Je suis dingue"))
 
 print(random_choice(mylist2))
+imputMat=np.empty((5,10),dtype=str)
+print(random_fill_sparse(imputMat, 10))
