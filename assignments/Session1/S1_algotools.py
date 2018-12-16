@@ -266,13 +266,16 @@
 #print(moy)
 #print('Positive values average='+str(moy))
 #print('Positive values average={v}'.format(v=moy))
+#----------------------------------------------------------MyCode------------------------------------------------------
 
 ### @author Nicolas Duwavrent
 
 import random
 import numpy
 import numpy as np
-#
+#get time to measure processing speed
+import time
+#-----------------------------------------------------average_above_zero-----------------------------------------------
 def average_above_zero(tab):
     """
     Brief: 
@@ -307,33 +310,7 @@ def average_above_zero(tab):
     return return_vals
 
 
-test_tab=[0,1,2,3,4,-6]
-moy=average_above_zero(test_tab)
-print(moy[0])
-print('Positive values average={v}'.format(v=moy[0]))
-print('Max value={max}'.format(max=moy[1]))
 
-
-
-
-# a variable
-a=1 # default type : int
-
-# an empty list
-mylist = []
-
-#a filled list
-mylist2=[1,2,3,4,5]
-
-#append to a list
-mylist.append(10)
-
-# a buggy list
-mybuggylist=[1,'a', "Hi"]
-
-#operators
-b=a+2
-mylist_sum=mylist+mylist2
 
 #
 
@@ -371,7 +348,7 @@ message='The average of positive samples of {list_value} is {res}'.format(list_v
                                                                           res=result)
 print(message)
 """
-
+#--------------------------------------------------MaxValue------------------------------------------------------------
 def max_value(input_list):
     ##
     # basic function able to return the max value of a list
@@ -407,70 +384,9 @@ def max_value(input_list):
 
     return max_val, max_idx
 
-#test max_value function
-#1 basic test, expected answer=2
-mylist3=[-1,2,-20]
 
-
-mymax, mymaxidx=max_value(mylist3)
-mymax_tuple=max_value(mylist3)
-mymax=mymax_tuple[0]
-print('Max value of {input_list} is {max_scan}'.format(input_list=mylist, max_scan=mymax))
-#==> message : "Max value of [-1, 2, -20] is (2, 1)"
-
-#2 error test : Exception expected
-#max_value([])
-"""
-
-"""
-# hints to solve the roi_bbox function exercise: numpy basics
-
-#matrix processing lib
-
-#create a numpy matrix with specific dimensions
-size_rows=10
-size_cols=10
-myMat=numpy.zeros([size_rows, size_cols], dtype=int)
-#set a value in a specific cell
-myMat[1,3]=1
-
-#fil something in the matrix, the basic way (a very slow python way...)
-for row in range(5,8):
-    for col in range(7,9):
-        myMat[row,col]=1
-
-#get time to measure processing speed
-import time
-init_time=time.time()
-
-#filling something in the matrix, a nicer way
-myMat[2:4,5:9]=1 #assign a scalar to each cell of a subarray
-myMat[4:7,7:9]=numpy.ones([3,2]) #copy an array in a subarray
-print(myMat)
-
-#get ellapsed time
-filling_time=time.time() -init_time
-print('data prefecting time='+str(filling_time))
-
-#fake bounding box coordinates matrix
-xmin=0
-xmax=100
-ymin=0
-ymax=200
-#how to fill the 4x2 bbox coordinates matrix, method 1 using 1D numpy arrays (ugly?)
-bbox_coords=numpy.zeros([4, 2], dtype=int)
-bbox_coords[0,:]=numpy.array([ymin, xmin])
-bbox_coords[1,:]=numpy.array([ymin, xmax])
-bbox_coords[2,:]=numpy.array([ymax, xmin])
-bbox_coords[3,:]=numpy.array([ymax, xmax])
-#how to fill the 4x2 bbox coordinates matrix, method 2 using lists (shorter way)
-#->create a list of lists
-coordsList=[[ymin, xmin],[ymin, xmax],[ymax, xmin],[ymax, xmax]]
-#->convert to an array
-coords_array=numpy.array(coordsList)
-
-
-def reverse(input_list):
+#---------------------------------------------------reverse_table------------------------------------------------------
+def reverse_table(input_list):
     """
     brief: reverse a list without an other list
     Args:
@@ -494,9 +410,9 @@ def reverse(input_list):
         lenght-=1
     return input_list
 
-print (reverse(mylist2))
 
-def bounding_box(inputMat):
+#--------------------------------------------------------roi_bbox------------------------------------------------------
+def roi_bbox(inputMat):
     """
     brief: do nothing and return 0
     Args:
@@ -532,11 +448,8 @@ def bounding_box(inputMat):
     roi=[lmin,cmin],[lmin,cmax],[lmax,cmin],[lmax,cmax]        
     return np.array(roi)
 
-imputMat=np.zeros((5,6),dtype=np.bool)
-imputMat[2:4,3:5]=np.ones((2,2), dtype=np.bool)
-print(str(imputMat))
-print(str(bounding_box(imputMat)))
 
+#------------------------------------------------------------remove_whitespace-----------------------------------------
 def remove_whitespace(string):
     """
     brief: take the string an delete the whitespace
@@ -555,8 +468,7 @@ def remove_whitespace(string):
         raise ValueError('Expected a not empty string')
     return string.replace(" ","")
 
-print(ord(" "))
-print(remove_whitespace("Je suis dingue"))
+
             
 def random_choice(liste):
     """
@@ -575,11 +487,108 @@ def random_choice(liste):
     index=random.randint(0,len(liste)-1)
     return liste[index]
 
+
+
+
+#---------------------------------------------Print--------------------------------------------------------------------
+
+test_tab=[0,1,2,3,4,-6]
+
+
+# a variable
+a=1 # default type : int
+
+# an empty list
+mylist = []
+
+#a filled list
+mylist2=[1,2,3,4,5]
+
+#append to a list
+mylist.append(10)
+
+# a buggy list
+mybuggylist=[1,'a', "Hi"]
+
+#operators
+b=a+2
+mylist_sum=mylist+mylist2
+
+mylist3=[-1,2,-20]
+
+moy=average_above_zero(test_tab)
+print(moy[0])
+print('Positive values average={v}'.format(v=moy[0]))
+print('Max value={max}'.format(max=moy[1]))
+
+
+#test max_value function
+#1 basic test, expected answer=2
+
+
+
+mymax, mymaxidx=max_value(mylist3)
+mymax_tuple=max_value(mylist3)
+mymax=mymax_tuple[0]
+print('Max value of {input_list} is {max_scan}'.format(input_list=mylist, max_scan=mymax))
+#==> message : "Max value of [-1, 2, -20] is (2, 1)"
+
+#2 error test : Exception expected
+#max_value([])
+"""
+
+"""
+print (reverse_table(mylist2))
+# hints to solve the roi_bbox function exercise: numpy basics
+
+#matrix processing lib
+
+#create a numpy matrix with specific dimensions
+size_rows=10
+size_cols=10
+myMat=numpy.zeros([size_rows, size_cols], dtype=int)
+#set a value in a specific cell
+myMat[1,3]=1
+
+#fil something in the matrix, the basic way (a very slow python way...)
+for row in range(5,8):
+    for col in range(7,9):
+        myMat[row,col]=1
+
+
+init_time=time.time()
+
+#filling something in the matrix, a nicer way
+myMat[2:4,5:9]=1 #assign a scalar to each cell of a subarray
+myMat[4:7,7:9]=numpy.ones([3,2]) #copy an array in a subarray
+print(myMat)
+
+#get ellapsed time
+filling_time=time.time() -init_time
+print('data prefecting time='+str(filling_time))
+
+#fake bounding box coordinates matrix
+xmin=0
+xmax=100
+ymin=0
+ymax=200
+#how to fill the 4x2 bbox coordinates matrix, method 1 using 1D numpy arrays (ugly?)
+bbox_coords=numpy.zeros([4, 2], dtype=int)
+bbox_coords[0,:]=numpy.array([ymin, xmin])
+bbox_coords[1,:]=numpy.array([ymin, xmax])
+bbox_coords[2,:]=numpy.array([ymax, xmin])
+bbox_coords[3,:]=numpy.array([ymax, xmax])
+#how to fill the 4x2 bbox coordinates matrix, method 2 using lists (shorter way)
+#->create a list of lists
+coordsList=[[ymin, xmin],[ymin, xmax],[ymax, xmin],[ymax, xmax]]
+#->convert to an array
+coords_array=numpy.array(coordsList)
+
+imputMat=np.zeros((5,6),dtype=np.bool)
+imputMat[2:4,3:5]=np.ones((2,2), dtype=np.bool)
+print(str(imputMat))
+print(str(roi_bbox(imputMat)))
+
+print("Remove whitespace :"+remove_whitespace("Je suis dingue"))
+
 print(random_choice(mylist2))
-
-
-
-
-
-
-
