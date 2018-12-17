@@ -521,24 +521,38 @@ def shuffle(score):
     while(score[0][1]<=100) and (score[1][1]<=100) and (reponse!='1234'):
         jeu=lance(jeu)
         reponse=''
-        print("Vous avez fait "+str(jeu[len(jeu)-1]))
+        print("Vous avez fait "+str(jeu[len(jeu)-1])+"\n")
         if (jeu[len(jeu)-1]==1):
+            print ("C'est un 1, dommage "+score[player][0]+" vous ne gagnez pas de points")
+            print ("------------------------------------------------------\n")
             jeu=[]
             player=joueur(player)
             reponse=2
-            print ("C'est un 1, dommage vous ne gagnez pas de points"+score[player][0])
         if (reponse==''):
-            print ("Joueur "+ score[player][0])
+            print ("Joueur :"+ score[player][0])
+            print ( score[0][0]+ " : "+str(score[0][1])+ " points")
+            print ( score[1][0]+ " : "+str(score[1][1])+ " points")
             display=''
             for i in jeu:
                 display=display+str(i)+"  "
-            print ("Votre vos lancers : "+ display)
+            print ("Vos lancers : "+ display)
             print ("Rejouer: Entrer, Stop: 0, Quiter: 1234")
-            reponse = input()
+            if (player==0):
+                reponse = input()
+            else:
+                sum=0
+                for number in jeu:
+                    sum=sum+number
+                if (len(jeu)>=random.randint(3,6)) or (sum>=15):
+                    reponse='0'
+                else:
+                    reponse=''
         if (reponse=='0'):
             for i in jeu:
                 score[player][1]=score[player][1]+i
             print("Score: "+score[player][0]+" : "+str(score[player][1]))
+            print ("------------------------------------------------------")
+            print (" ")
             player=joueur(player)
             jeu=[]
     print ("fin")
