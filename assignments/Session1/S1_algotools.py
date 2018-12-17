@@ -580,6 +580,35 @@ def joueur(player):
     else:
         player=0
     return player
+
+#----------------------------------------------sort_selective----------------------------------------------------------
+def sort_selective(list_in):
+    """
+    brief: A user fights against the computer in a dice game, here are the rules
+    At the beginning, each player has a null score and the winner is the first obtaining at least 100 points.Participants play in turn but the user always starts.Each player throws a dice as many times as he wants. Stop throws dice before have a '1 to add the thows to your score. '1' does not increase the score.
+    Args:
+        tab :a list of values, raise Exception if the list is empty
+    Returns:
+        the sorted list
+    Raises:
+        ValueError if input tab is not a list
+        ValueError if input tab is not empty
+    """
+    if not(isinstance(list_in, list)):
+        raise ValueError('Expected a list as input')
+    if not list_in:
+        raise ValueError('Expected a non empty list')
+    taille=len(list_in)-1
+    for lecture in range (taille):
+        print (lecture)
+        mini=taille
+        for case in range(lecture,taille):
+            if (list_in[case]<list_in[mini]):
+                mini=case
+        temp=list_in[lecture]
+        list_in[lecture]=list_in[mini]
+        list_in[mini]=temp
+    return list_in   
 #---------------------------------------------Print--------------------------------------------------------------------
 
 #test_tab=[0,1,2,3,4,-6]
@@ -684,5 +713,10 @@ def joueur(player):
 #print(random_choice(mylist2))
 #imputMat=np.empty((5,10),dtype=str)
 #print(random_fill_sparse(imputMat, 10))
-liste=[]
-print (shuffle(liste))
+#liste=[]
+#print (shuffle(liste))
+    
+liste50=[]
+for i in range (500):
+    liste50.append(random.randint(-100,100))
+print (sort_selective(liste50))
