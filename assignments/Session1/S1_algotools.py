@@ -643,8 +643,6 @@ def sort_selective(list_in):
 #print(random_choice(mylist2))
 #imputMat=np.empty((5,10),dtype=str)
 #print(random_fill_sparse(imputMat, 10))
-#liste=[]
-#print (shuffle(liste))
     
 liste50=[]
 for i in range (500):
