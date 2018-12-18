@@ -514,8 +514,7 @@ def random_choice(liste):
 #----------------------------------------------sort_selective----------------------------------------------------------
 def sort_selective(list_in):
     """
-    brief: A user fights against the computer in a dice game, here are the rules
-    At the beginning, each player has a null score and the winner is the first obtaining at least 100 points.Participants play in turn but the user always starts.Each player throws a dice as many times as he wants. Stop throws dice before have a '1 to add the thows to your score. '1' does not increase the score.
+    brief: Selective sort. This algorithm consist in finding smallest values and doing permutations.
     Args:
         tab :a list of values, raise Exception if the list is empty
     Returns:
@@ -539,6 +538,37 @@ def sort_selective(list_in):
         list_in[lecture]=list_in[mini]
         list_in[mini]=temp
     return list_in   
+
+#---------------------------------------------sort-bubble--------------------------------------------------------------
+def sort_bubble(list_in):
+    """
+    brief: Bubble sort. It consists in pair comparisons of all the N elements to be sorted.
+    Args:
+        tab :a list of values, raise Exception if the list is empty
+    Returns:
+        the sorted list
+    Raises:
+        ValueError if input tab is not a list
+        ValueError if input tab is not empty
+    """
+    if not(isinstance(list_in, list)):
+        raise ValueError('Expected a list as input')
+    if not list_in:
+        raise ValueError('Expected a non empty list')
+        
+    for i in range (len(list_in)-1,0,-1):
+        trié=1
+        for j in range (0,i):
+            if (list_in[j+1]<list_in[j]):
+                temp=list_in[j+1]
+                list_in[j+1]=list_in[j]
+                list_in[j]=temp
+                trié = 0
+        if(trié):
+            return list_in
+    return list_in
+
+
 #---------------------------------------------Print--------------------------------------------------------------------
 
 #test_tab=[0,1,2,3,4,-6]
@@ -645,6 +675,6 @@ def sort_selective(list_in):
 #print(random_fill_sparse(imputMat, 10))
     
 liste50=[]
-for i in range (500):
+for i in range (50):
     liste50.append(random.randint(-100,100))
-print (sort_selective(liste50))
+print (sort_bubble(liste50))
