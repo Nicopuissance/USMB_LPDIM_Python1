@@ -5,7 +5,7 @@ Created on Mon Dec 17 23:04:09 2018
 
 @author: nicolasduwavrent
 """
-
+import random
 def shuffle(score):
     """
     brief: A user fights against the computer in a dice game, here are the rules
