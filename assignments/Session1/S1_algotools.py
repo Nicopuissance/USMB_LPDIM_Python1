@@ -373,29 +373,30 @@ def max_value(input_list):
         raise ValueError('provided list is empty')
     #init max_value and its index
     max_val=input_list[0]
-    max_idx=0
+#    max_idx=0
     #compute the average of positive elements of a list
-    """for item in input_list:
+    for item in input_list:
         #select only positive items
         if max_val<item:
             max_val=item
-    """
-    #generic style : iterate over the range of list indexes
-    for idx in range(len(input_list)):
-        #select only positive items
-        if max_val<input_list[idx]:
-            max_val=input_list[idx]
-            max_idx=idx
-
-
+    return max_val
+    
+#    #generic style : iterate over the range of list indexes
+#    for idx in range(len(input_list)):
+#        #select only positive items
+#        if max_val<input_list[idx]:
+#            max_val=input_list[idx]
+#            max_idx=idx
+#
+#
 #    #generic style : iterate over the range of list indexes
 #    for idx, item in enumerate(input_list):
 #        #select only positive items
 #        if max_val<item:
 #            max_val=item
 #            max_idx=idx
-
-    return max_val, max_idx
+#
+#    return max_val, max_idx
 
 
 #---------------------------------------------------reverse_table------------------------------------------------------
