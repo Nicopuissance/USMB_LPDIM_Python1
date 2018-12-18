@@ -350,7 +350,7 @@ print(message)
 """
 #--------------------------------------------------MaxValue------------------------------------------------------------
 def max_value(input_list):
-     """
+    """
     Brief: 
         return the max value in a list
     Arg: 
@@ -361,7 +361,7 @@ def max_value(input_list):
         ValueError if value is found
         ValueError if input tab is not a list
     """
-    if not(isinstance(tab,list)):
+    if not(isinstance(input_list,list)):
         raise ValueError("Expected a list as input")
     ##
     # basic function able to return the max value of a list
