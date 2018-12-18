@@ -557,14 +557,14 @@ def sort_bubble(list_in):
         raise ValueError('Expected a non empty list')
         
     for i in range (len(list_in)-1,0,-1):
-        trié=1
+        fini=1
         for j in range (0,i):
             if (list_in[j+1]<list_in[j]):
                 temp=list_in[j+1]
                 list_in[j+1]=list_in[j]
                 list_in[j]=temp
-                trié = 0
-        if(trié):
+                fini = 0
+        if(fini):
             return list_in
     return list_in
 
