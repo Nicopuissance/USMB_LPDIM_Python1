@@ -48,7 +48,7 @@ def shuffle(score):
                 sum=0
                 for number in jeu:
                     sum=sum+number
-                if (len(jeu)>=random.randint(3,6)) or (sum>=15):
+                if (len(jeu)>=random.randint(2,5)) or (sum>=15):
                     reponse='0'
                 else:
                     reponse=''
@@ -73,3 +73,6 @@ def joueur(player):
     else:
         player=0
     return player
+
+
+print (shuffle([]))
