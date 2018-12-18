@@ -52,14 +52,24 @@ def test_session1script_exists():
 def test_S1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >0
+<<<<<<< HEAD:test_S2.py
     testList=[1,2,3,4]
     assert load_S1_script().average_above_zero(testList) ==2.5
+=======
+    testList=[1,2,3,4,7]
+    assert load_S1_script().average_above_zero(testList)[0] ==2.5
+>>>>>>> parent of 11b6826... Create test_S2.py:test_demo.py
 
 def test_S1_selective_average_with_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >=0
+<<<<<<< HEAD:test_S2.py
     testList=[0,1,2,3,4]
     assert load_S1_script().average_above_zero(testList)==2.5
+=======
+    testList=[0,1,2,3,4,-7]
+    assert load_S1_script().average_above_zero(testList)[0] ==2.5
+>>>>>>> parent of 11b6826... Create test_S2.py:test_demo.py
 
 def test_S1_selective_average_with_negative_values():
     ##
@@ -111,7 +121,7 @@ def test_S1_max_value_with_empty_list():
 
 def test_S1_max_value_with_other_type_than_list():
     # @test validates max_value works fine with an other type than list
-    testList=1
+    testList='a'
     try:
         load_S1_script().max_value(testList)
         assert False
