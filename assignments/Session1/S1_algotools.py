@@ -271,10 +271,9 @@
 ### @author Nicolas Duwavrent
 
 import random
-import numpy
 import numpy as np
 #get time to measure processing speed
-import time
+#import time
 #-----------------------------------------------------average_above_zero-----------------------------------------------
 def average_above_zero(tab):
     """
@@ -447,7 +446,7 @@ def roi_bbox(inputMat):
     roi=[lmin,cmin],[lmin,cmax],[lmax,cmin],[lmax,cmax]        
     return np.array(roi)
 
-#------------------------------------------------------------
+#---------------------------------------------------random_fill_sparse--------------------------------------------------
 def random_fill_sparse(npArray, K):
     """
     brief: compute the bounding box coordinates of the object.
@@ -492,9 +491,9 @@ def remove_whitespace(string):
         raise ValueError('Expected a not empty string')
     return string.replace(" ","")
 
-#------------------------------------------------------------Random_choice---------------------------------------------
+#------------------------------------------------------------Shuffle---------------------------------------------------
             
-def random_choice(liste):
+def shuffle(liste):
     """
     brief: choose randomly in the given liste
     Args:
