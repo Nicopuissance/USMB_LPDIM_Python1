@@ -17,7 +17,7 @@ def shuffle(score):
     Raises:
         ValueError if input tab is not a list
     """
-    if not(isinstance(liste, list)):
+    if not(isinstance(score, list)):
         raise ValueError('Expected a list as input')
     score=[["J1",0],["Ordi",0]]
     player=0
