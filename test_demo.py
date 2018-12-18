@@ -164,13 +164,13 @@ def test_S1_reverse_table_with_empty_list():
     except ValueError:
         assert True
 
-#------------------------------------------------------------------------------random_fill_sparse---------------------------------
+#------------------------------------------------------------------------------Reverse_Table---------------------------------
   
     
 def test_S1_random_fill_sparse_with_error_type():
     # @test validates reverse_table works fine with only positive values
     testList=[1,2,3,4,7]
-    assert load_S1_script().random_fill_sparse(testList) == [7,4,3,2,1]
+    assert load_S1_script().reverse_table(testList) == [7,4,3,2,1]
 
     
     
