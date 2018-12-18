@@ -47,10 +47,12 @@ def test_session1script_exists():
 #    reference_average_value=np.mean(positive_elements_float_array)
 #    assert load_S1_script().average_above_zero(testList) ==reference_average_value
 
+#------------------------------------------------------------------------------average_above_zero---------------------------------
+
 def test_S1_selective_average_non_zeros_values():
     ##
     # @test validates average_above_zero works fine with integer values >0
-    testList=[1,2,3,4,-7]
+    testList=[1,2,3,4,7]
     assert load_S1_script().average_above_zero(testList)[0] ==2.5
 
 def test_S1_selective_average_with_zeros_values():
@@ -81,19 +83,20 @@ def test_S1_selective_average_with_empty_list():
         assert False
     except ValueError:
         assert True
-
+        
+#------------------------------------------------------------------------------Max value---------------------------------
 def test_S1_max_value_with_positive_values():
     # @test validates max_value works fine with only positive values
     testList=[1,2,3,4,7]
     assert load_S1_script().max_value(testList)[0] == 7
 
 def test_S1_max_value_with_negative_values():
-    # @test validates max_value works fine with only positive values
+    # @test validates max_value works fine with only negative values
     testList=[-1,-2,-3,-4,-7]
     assert load_S1_script().max_value(testList)[0] == -1
 
 def test_S1_max_value_with_mixed_values():
-    # @test validates max_value works fine with only positive values
+    # @test validates max_value works fine with only mixed values
     testList=[1,-2,3,-4,-7]
     assert load_S1_script().max_value(testList)[0] == 3
     
@@ -105,13 +108,60 @@ def test_S1_max_value_with_empty_list():
         assert False
     except ValueError:
         assert True
+
+def test_S1_max_value_with_other_type_than_list():
+    # @test validates max_value works fine with an other type than list
+    testList='a'
+    try:
+        load_S1_script().max_value(testList)
+        assert False
+    except ValueError:
+        assert True
+#------------------------------------------------------------------------------Reverse_Table---------------------------------
+  
     
+def test_S1_reverse_table_with_positive_values():
+    # @test validates reverse_table works fine with only positive values
+    testList=[1,2,3,4,7]
+    assert load_S1_script().reverse_table(testList) == [7,4,3,2,1]
+
+def test_S1_reverse_table_with_negative_values():
+    # @test validates reverse_table works fine with only negative values
+    testList=[-1,-2,-3,-4,-7]
+    assert load_S1_script().reverse_table(testList) == [-7,-4,-3,-2,-1]
+
+def test_S1_reverse_table_with_mixed_values():
+    # @test validates reverse_table works fine with mixed values
+    testList=[1,-2,3,-4,-7]
+    assert load_S1_script().reverse_table(testList) == [-7,-4,3,-2,1]
+   
+def test_S1_reverse_table_with_letters():
+    # @test validates reverse_table works fine with only letters
+    testList=['a','b','c','d']
+    assert load_S1_script().reverse_table(testList) == ['d','c','b','a']
+
+def test_S1_reverse_table_with_mixed_type():
+    # @test validates reverse_table works fine with letters and numbers
+    testList=[-1,2,3,-4,'a','b',1]
+    assert load_S1_script().reverse_table(testList) == [1,'b','a',-4,3,2,-1]
     
+def test_S1_reverse_table_with_empty_list():
+    # @test validates reverse_table works fine with an empty list
+    testList=[]
+    try:
+        load_S1_script().reverse_table(testList)
+        assert False
+    except ValueError:
+        assert True
+
+#------------------------------------------------------------------------------Reverse_Table---------------------------------
+  
     
-    
-    
-    
-    
+def test_S1_random_fill_sparse_with_error_type():
+    # @test validates reverse_table works fine with only positive values
+    testList=[1,2,3,4,7]
+    assert load_S1_script().reverse_table(testList) == [7,4,3,2,1]
+
     
     
     
