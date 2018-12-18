@@ -306,7 +306,7 @@ def average_above_zero(tab):
         raise ValueError("No positive value found")
     average=valSum/nPositiveValue
     return_vals=[average,maxi]
-    return return_vals
+    return return_vals[]
 
 
 
@@ -349,6 +349,19 @@ print(message)
 """
 #--------------------------------------------------MaxValue------------------------------------------------------------
 def max_value(input_list):
+    """
+    Brief: 
+        return the max value in a list
+    Arg: 
+        a list of numeric values, else it will raise an Error
+    Return: 
+        the max value
+    Raise: 
+        ValueError if value is found
+        ValueError if input tab is not a list
+    """
+    if not(isinstance(tab,list)):
+        raise ValueError("Expected a list as input")
     ##
     # basic function able to return the max value of a list
     # @param input_list : the input list to be scanned
@@ -374,12 +387,12 @@ def max_value(input_list):
             max_idx=idx
 
 
-    #generic style : iterate over the range of list indexes
-    for idx, item in enumerate(input_list):
-        #select only positive items
-        if max_val<item:
-            max_val=item
-            max_idx=idx
+#    #generic style : iterate over the range of list indexes
+#    for idx, item in enumerate(input_list):
+#        #select only positive items
+#        if max_val<item:
+#            max_val=item
+#            max_idx=idx
 
     return max_val, max_idx
 
@@ -673,7 +686,7 @@ def sort_bubble(list_in):
 #imputMat=np.empty((5,10),dtype=str)
 #print(random_fill_sparse(imputMat, 10))
     
-liste50=[]
-for i in range (50):
-    liste50.append(random.randint(-100,100))
-print (sort_bubble(liste50))
+#liste50=[]
+#for i in range (50):
+#    liste50.append(random.randint(-100,100))
+#print (sort_bubble(liste50))
